@@ -23,6 +23,8 @@
         .buttons {
             margin-top: 20px;
             position: relative;
+            width: 100%;
+            max-width: 400px;
         }
         button {
             font-size: 1.5em;
@@ -47,14 +49,16 @@
 <body>
     <h1>Will you be my Valentine?</h1>
     <div class="buttons">
-        <button class="yes" onclick="alert('Yay! ❤️ *mwah*')">Yes</button>
+        <button class="yes" onclick="alert('Yay! ❤️')">Yes</button>
         <button class="no" onmouseover="moveButton(this)" ontouchstart="moveButton(this)">No</button>
     </div>
     
     <script>
         function moveButton(button) {
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+            const x = Math.max(0, Math.min(Math.random() * maxX, maxX));
+            const y = Math.max(0, Math.min(Math.random() * maxY, maxY));
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
         }
