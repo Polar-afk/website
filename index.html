@@ -15,12 +15,14 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
         h1 {
             font-size: 2.5em;
         }
         .buttons {
             margin-top: 20px;
+            position: relative;
         }
         button {
             font-size: 1.5em;
@@ -29,15 +31,16 @@
             border: none;
             cursor: pointer;
             border-radius: 10px;
+            position: absolute;
         }
         .yes {
             background-color: red;
             color: white;
+            position: relative;
         }
         .no {
             background-color: white;
             color: red;
-            position: absolute;
         }
     </style>
 </head>
@@ -45,7 +48,7 @@
     <h1>Will you be my Valentine?</h1>
     <div class="buttons">
         <button class="yes" onclick="alert('Yay! ❤️')">Yes</button>
-        <button class="no" onmouseover="moveButton(this)">No</button>
+        <button class="no" onmouseover="moveButton(this)" ontouchstart="moveButton(this)">No</button>
     </div>
     
     <script>
